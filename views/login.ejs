@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Login — Mi Proyecto IA</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="h-screen flex">
+  <div class="w-1/2 hidden md:block relative">
+    <img src="/images/login-bg.jpg" alt="Fondo Login" class="object-cover w-full h-full"/>
+    <div class="absolute inset-0 bg-black bg-opacity-50"></div>
+    <div class="absolute inset-0 flex flex-col justify-center items-start p-12 text-white">
+      <h2 class="text-4xl font-bold mb-4">Bienvenido</h2>
+      <p>Ingresa tu cuenta para continuar.</p>
+    </div>
+  </div>
+  <div class="w-full md:w-1/2 flex items-center justify-center bg-gray-50 p-8 z-10">
+    <div class="max-w-md w-full bg-white p-8 rounded-lg shadow-lg space-y-6">
+      <div class="text-center space-y-2">
+        <img src="/images/logo.png" alt="Logo" class="mx-auto h-12"/><h1 class="text-3xl font-semibold">Iniciar Sesión</h1>
+      </div>
+      <form action="/login" method="post" class="space-y-4">
+        <% if (typeof error !== 'undefined') { %><p class="text-red-600 text-center"><%= error %></p><% } %>
+        <div><label for="email" class="block text-sm font-medium text-gray-700">Email</label>
+        <input id="email" name="email" type="email" required class="mt-1 block w-full px-4 py-2 border rounded-lg focus:ring focus:ring-indigo-200"/></div>
+        <div><label for="password" class="block text-sm font-medium text-gray-700">Contraseña</label>
+        <div class="relative mt-1"><input id="password" name="password" type="password" required class="block w-full px-4 py-2 border rounded-lg focus:ring focus:ring-indigo-200"/>
+        <button id="togglePassword" type="button" class="absolute inset-y-0 right-3 flex items-center text-gray-400">👁</button></div></div>
+        <button type="submit" class="w-full py-2 bg-black text-white rounded-lg font-semibold hover:bg-gray-800">Entrar</button>
+        <p class="text-sm text-center text-gray-600">¿No tienes cuenta? <a href="/register" class="text-indigo-600 hover:underline">Crear una</a></p>
+      </form>
+    </div>
+  </div>
+  <script src="/js/main.js"></script>
+</body>
+</html>

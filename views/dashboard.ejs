@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Dashboard — Mi Proyecto IA</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="flex h-screen bg-gray-100">
+  <aside class="w-64 bg-white shadow-lg p-4">
+    <h2 class="text-xl font-bold mb-6">Menú</h2>
+    <nav><ul class="space-y-2">
+      <li><a href="/" class="block px-3 py-2 hover:bg-gray-200 rounded">Inicio</a></li>
+      <li><a href="/products" class="block px-3 py-2 hover:bg-gray-200 rounded">Productos</a></li>
+      <li><a href="/contact" class="block px-3 py-2 hover:bg-gray-200 rounded">Contacto</a></li>
+    </ul></nav>
+  </aside>
+  <main class="flex-1 overflow-auto p-6">
+    <nav class="flex items-center justify-between mb-6">
+      <h1 class="text-2xl font-bold">Mi Proyecto IA</h1>
+      <div id="userMenu" class="relative">
+        <button id="userBtn" class="w-10 h-10 rounded-full bg-blue-600 text-white flex items-center justify-center font-semibold focus:outline-none">
+          <%= user.initials %>
+        </button>
+        <ul id="userDropdown" class="absolute right-0 mt-2 w-44 bg-white rounded-lg shadow-lg py-2 hidden">
+          <li><a href="/profile" class="block px-4 py-2 hover:bg-gray-100">Mi Perfil</a></li>
+          <li><a href="/settings" class="block px-4 py-2 hover:bg-gray-100">Ajustes</a></li>
+          <li><form action="/logout" method="post"><button type="submit" class="w-full text-left px-4 py-2 hover:bg-gray-100">Cerrar sesión</button></form></li>
+        </ul>
+      </div>
+    </nav>
+    <section class="mb-8">
+      <div class="flex space-x-6">
+        <div class="bg-white p-4 rounded-lg shadow flex-1">
+          <h3 class="text-lg font-semibold">Productos totales</h3>
+          <p class="text-3xl font-bold"><%= products.length %></p>
+        </div>
+        <div class="bg-white p-4 rounded-lg shadow flex-1">
+          <h3 class="text-lg font-semibold">Categorías</h3>
+          <p class="text-3xl font-bold"><%= categoriesCount %></p>
+        </div>
+      </div>
+    </section>
+    <section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+      <% products.forEach(product => { %>
+      <div class="bg-white rounded-2xl shadow p-4">
+        <img src="<%= product.image_url %>" alt="<%= product.name %>" class="w-full rounded-lg mb-4"/>
+        <h3 class="text-lg font-semibold mb-2"><%= product.name %></h3>
+        <p class="text-gray-600 mb-2"><%= product.description %></p>
+        <p class="font-bold text-indigo-600">€<%= parseFloat(product.price).toFixed(2) %></p>
+      </div>
+      <% }) %>
+    </section>
+    <footer class="text-center py-4 text-gray-600">© 2025 Mi Proyecto IA. Todos los derechos reservados.</footer>
+  </main>
+  <script src="/js/main.js"></script>
+</body>
+</html>
