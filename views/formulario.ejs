@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <link rel="icon" type="image/png" href="/images/favicon.png">
+    <title>Contacto — Mi Proyecto IA</title>
+    <!-- TailwindCSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Favicon -->
+    <link rel="icon" href="/images/favicon.ico" sizes="any">
+</head>
+<body class="flex h-screen bg-gray-100">
+
+    <!-- Sidebar -->
+    <aside class="w-64 bg-white shadow-lg p-4">
+        <h2 class="text-xl font-bold mb-6">Menú</h2>
+        <nav>
+        <ul class="space-y-2">
+            <li><a href="/" class="block px-3 py-2 hover:bg-gray-200 rounded">Inicio</a></li>
+            <li><a href="/products" class="block px-3 py-2 hover:bg-gray-200 rounded">Productos</a></li>
+            <li><a href="/contact" class="block px-3 py-2 bg-gray-200 rounded">Contacto</a></li>
+        </ul>
+        </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="flex-1 overflow-auto p-6">
+
+        <!-- Navbar (sin avatar para simplificar; si quieres repetir avatar, puedes copiarlo) -->
+        <nav class="flex items-center justify-between mb-6">
+        <h1 class="text-2xl font-bold">Contacto</h1>
+        <!-- Si quieres mostrar avatar aquí, inclúyelo tal como en dashboard.ejs -->
+        </nav>
+
+        <!-- Breadcrumbs -->
+        <ol class="flex text-gray-600 space-x-2 text-sm mb-6">
+        <li><a href="/" class="hover:underline">Inicio</a></li>
+        <li>/</li>
+        <li class="text-gray-800">Contacto</li>
+        </ol>
+
+        <!-- Tarjeta con instrucciones -->
+        <div class="bg-white rounded-lg shadow p-6 mb-8">
+        <h2 class="text-xl font-semibold mb-2">¿En qué podemos ayudarte?</h2>
+        <p class="text-gray-600">
+            Rellena el siguiente formulario para describir tu consulta o problema. Nuestro equipo 
+            se pondrá en contacto contigo lo antes posible.
+        </p>
+        </div>
+
+        <!-- Formulario de Contacto -->
+        <section class="max-w-xl mx-auto bg-white rounded-lg shadow-lg p-8">
+        <form action="/contact" method="post" class="space-y-6">
+
+            <!-- Campo Nombre -->
+            <div>
+            <label for="name" class="block text-sm font-medium text-gray-700">
+                Nombre completo
+            </label>
+            <input id="name" name="name" type="text" required
+                    placeholder="Tu nombre aquí"
+                    class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg 
+                            focus:outline-none focus:ring-2 focus:ring-indigo-300"/>
+            </div>
+
+            <!-- Campo Email -->
+            <div>
+            <label for="email" class="block text-sm font-medium text-gray-700">
+                Email
+            </label>
+            <input id="email" name="email" type="email" required
+                    placeholder="tucorreo@ejemplo.com"
+                    class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg 
+                            focus:outline-none focus:ring-2 focus:ring-indigo-300"/>
+            </div>
+
+            <!-- Campo Asunto -->
+            <div>
+            <label for="subject" class="block text-sm font-medium text-gray-700">
+                Asunto
+            </label>
+            <input id="subject" name="subject" type="text" required
+                    placeholder="Asunto de tu consulta"
+                    class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg 
+                            focus:outline-none focus:ring-2 focus:ring-indigo-300"/>
+            </div>
+
+            <!-- Campo Descripción del Problema -->
+            <div>
+            <label for="message" class="block text-sm font-medium text-gray-700">
+                Descripción del problema
+            </label>
+            <textarea id="message" name="message" rows="5" required
+                        placeholder="Cuéntanos con detalle el problema o consulta..."
+                        class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg 
+                            focus:outline-none focus:ring-2 focus:ring-indigo-300 resize-y"></textarea>
+            </div>
+
+            <!-- Botón Enviar -->
+            <div class="flex justify-end">
+            <button type="submit"
+                    class="px-6 py-3 bg-indigo-600 text-white font-semibold rounded-lg 
+                            hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-300">
+                Enviar
+            </button>
+            </div>
+        </form>
+        </section>
+
+        <!-- Footer -->
+        <footer class="text-center py-4 text-gray-600 mt-12">
+        © 2025 Mi Proyecto IA. Todos los derechos reservados.
+        </footer>
+
+    </main>
+
+    <!-- JS principal -->
+    <script src="/js/main.js"></script>
+</body>
+</html>

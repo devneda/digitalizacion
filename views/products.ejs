@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <link rel="icon" type="image/png" href="/images/favicon.png">
+    <title>Productos — Mi Proyecto IA</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="flex h-screen bg-gray-100">
+
+    <!-- Sidebar -->
+    <aside class="w-64 bg-white shadow-lg p-4">
+        <h2 class="text-xl font-bold mb-6">Menú</h2>
+        <nav>
+        <ul class="space-y-2">
+            <li><a href="/" class="block px-3 py-2 hover:bg-gray-200 rounded">Inicio</a></li>
+            <li><a href="/products" class="block px-3 py-2 bg-gray-200 rounded">Productos</a></li>
+            <li><a href="/contact" class="block px-3 py-2 hover:bg-gray-200 rounded">Contacto</a></li>
+        </ul>
+        </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="flex-1 overflow-auto p-6">
+
+        <!-- Navbar + Avatar -->
+        <nav class="flex items-center justify-between mb-6">
+        <h1 class="text-2xl font-bold">Listado de Productos</h1>
+        <div id="userMenu" class="relative">
+            <button id="userBtn"
+                    class="w-10 h-10 rounded-full bg-blue-600 text-white flex items-center justify-center font-semibold focus:outline-none">
+            <%= user.initials %>
+            </button>
+            <ul id="userDropdown"
+                class="absolute right-0 mt-2 w-44 bg-white rounded-lg shadow-lg py-2 hidden">
+            <li><a href="/profile" class="block px-4 py-2 hover:bg-gray-100">Mi Perfil</a></li>
+            <li><a href="/settings" class="block px-4 py-2 hover:bg-gray-100">Ajustes</a></li>
+            <li>
+                <form action="/logout" method="post">
+                <button type="submit" class="w-full text-left px-4 py-2 hover:bg-gray-100">
+                    Cerrar sesión
+                </button>
+                </form>
+            </li>
+            </ul>
+        </div>
+        </nav>
+
+        <!-- Breadcrumbs -->
+        <ol class="flex text-gray-600 space-x-2 text-sm mb-4">
+        <li><a href="/" class="hover:underline">Inicio</a></li>
+        <li>/</li>
+        <li class="text-gray-800">Productos</li>
+        </ol>
+
+        <!-- Tabla de productos -->
+        <div class="bg-white rounded-lg shadow overflow-x-auto">
+        <table class="min-w-full divide-y divide-gray-200">
+            <thead class="bg-gray-50">
+            <tr>
+                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                Imagen
+                </th>
+                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                Nombre
+                </th>
+                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                Descripción
+                </th>
+                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                Precio
+                </th>
+            </tr>
+            </thead>
+            <tbody class="bg-white divide-y divide-gray-200">
+            <% productos.forEach(prod => { %>
+                <tr>
+                <!-- Columna de Imagen -->
+                <td class="px-6 py-4 whitespace-nowrap">
+                    <img src="<%= prod.image_url || '/images/placeholder.png' %>"
+                        alt="<%= prod.name %>"
+                        class="w-16 h-16 object-cover rounded"/>
+                </td>
+
+                <!-- Columna de Nombre -->
+                <td class="px-6 py-4 whitespace-nowrap text-gray-800">
+                    <%= prod.name %>
+                </td>
+
+                <!-- Columna de Descripción (limitada en longitud) -->
+                <td class="px-6 py-4 whitespace-nowrap text-gray-600">
+                    <% 
+                    let desc = prod.description || '';
+                    if (desc.length > 60) {
+                        desc = desc.substring(0, 60) + '...';
+                    }
+                    %>
+                    <%= desc %>
+                </td>
+
+                <!-- Columna de Precio -->
+                <td class="px-6 py-4 whitespace-nowrap text-indigo-600 font-semibold">
+                    €<%= parseFloat(prod.price).toFixed(2) %>
+                </td>
+                </tr>
+            <% }) %>
+            </tbody>
+        </table>
+        </div>
+
+        <!-- Footer -->
+        <footer class="text-center py-4 text-gray-600 mt-8">
+        © 2025 Mi Proyecto IA. Todos los derechos reservados.
+        </footer>
+
+    </main>
+
+    <!-- JS principal -->
+    <script src="/js/main.js"></script>
+</body>
+</html>

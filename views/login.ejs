@@ -2,6 +2,7 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <link rel="icon" type="image/png" href="/images/favicon.png">
   <title>Login — Mi Proyecto IA</title>
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
@@ -25,7 +26,12 @@
         <input id="email" name="email" type="email" required class="mt-1 block w-full px-4 py-2 border rounded-lg focus:ring focus:ring-indigo-200"/></div>
         <div><label for="password" class="block text-sm font-medium text-gray-700">Contraseña</label>
         <div class="relative mt-1"><input id="password" name="password" type="password" required class="block w-full px-4 py-2 border rounded-lg focus:ring focus:ring-indigo-200"/>
-        <button id="togglePassword" type="button" class="absolute inset-y-0 right-3 flex items-center text-gray-400">👁</button></div></div>
+        <button id="togglePassword" type="button" class="absolute inset-y-0 right-3 flex items-center text-gray-400">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 0 1 0-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178Z" />
+            <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+          </svg>
+        </button></div></div>
         <button type="submit" class="w-full py-2 bg-black text-white rounded-lg font-semibold hover:bg-gray-800">Entrar</button>
         <p class="text-sm text-center text-gray-600">¿No tienes cuenta? <a href="/register" class="text-indigo-600 hover:underline">Crear una</a></p>
       </form>
