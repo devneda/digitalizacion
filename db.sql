@@ -31,6 +31,6 @@ CREATE TABLE products (
 -- Datos de ejemplo
 INSERT INTO categories (name) VALUES ('Tecnología'),('Hogar'),('Oficina');
 INSERT INTO products (name, description, price, image_url, category_id) VALUES
-('Auriculares inalámbricos','Auriculares con cancelación de ruido',59.99,'/images/placeholder.png',1),
-('Lámpara LED','Lámpara de escritorio con brazo flexible',29.50,'/images/placeholder.png',2),
-('Monitor 24"','Monitor Full HD',129.00,'/images/placeholder.png',3);
+('Auriculares inalámbricos','Auriculares con cancelación de ruido',59.99,'/images/auriculares.jpg',1),
+('Lámpara LED','Lámpara de escritorio con brazo flexible',29.50,'/images/lampara-led.png',2),
+('Monitor 24"','Monitor Full HD',129.00,'/images/monitor-24p.jpg',3);
